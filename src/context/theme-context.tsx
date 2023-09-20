@@ -1,16 +1,10 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
-import {ColorSchemeName} from 'react-native';
+/* eslint-disable no-void */
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
+import type { ColorSchemeName } from "react-native";
 
-const ASYNC_THEME_KEY = 'THEME_STATE';
+const ASYNC_THEME_KEY = "THEME_STATE";
 
 export interface IThemeContext {
   theme: ColorSchemeName;
@@ -20,7 +14,7 @@ export interface IThemeContext {
 
 export const ThemeContext = createContext<IThemeContext | undefined>(undefined);
 
-export default function ThemeProvider({children}: {children: ReactNode}) {
+export default function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ColorSchemeName>();
   const [loading, setLoading] = useState(true);
 
@@ -29,7 +23,7 @@ export default function ThemeProvider({children}: {children: ReactNode}) {
   useEffect(() => {
     const onLoad = async () => {
       const storedTheme = (await AsyncStorage.getItem(
-        ASYNC_THEME_KEY,
+        ASYNC_THEME_KEY
       )) as ColorSchemeName;
       setTheme(storedTheme);
       setLoading(false);
@@ -37,15 +31,21 @@ export default function ThemeProvider({children}: {children: ReactNode}) {
     onLoad();
   }, []);
 
-  // useEffect((), )
+  useEffect(() => {
+    if (theme) {
+      void AsyncStorage.setItem(ASYNC_THEME_KEY, theme);
+    } else {
+      void AsyncStorage.removeItem(ASYNC_THEME_KEY);
+    }
+  }, [theme]);
 
   const values = useMemo(
     () => ({
       theme,
       setTheme,
-      loading,
+      loading
     }),
-    [theme, loading],
+    [theme, loading]
   );
 
   if (loading) {
