@@ -1,46 +1,46 @@
 export const colors: Record<ColorThemeName, ThemeColors> = {
   light: {
-    text: '#222',
-    textMuted: '#454547',
-    textLight: '#fff',
+    text: "#222",
+    textMuted: "#454547",
+    textLight: "#fff",
     backgrounds: {
-      default: '#fff',
-      soft: '#e0e0e4',
-      strong: '#555',
-      primary: '#e03131',
-      inverted: '#29292c',
-    },
+      default: "#fff",
+      soft: "#e0e0e4",
+      strong: "#555",
+      primary: "#e03131",
+      inverted: "#29292c"
+    }
   },
   dark: {
-    text: '#fff',
-    textMuted: '#ccc',
-    textLight: '#fff',
+    text: "#fff",
+    textMuted: "#ccc",
+    textLight: "#fff",
     backgrounds: {
-      default: '#29292c',
-      soft: '#565659',
-      strong: '#aaa',
-      primary: '#e03131',
-      inverted: '#fff',
-    },
-  },
+      default: "#29292c",
+      soft: "#565659",
+      strong: "#aaa",
+      primary: "#e03131",
+      inverted: "#fff"
+    }
+  }
 };
 
 export const spacing = {
-	gaps: {
-	  g12: 12,
-	  g24: 24,
-	  button: {
-		horizontal: 18,
-		vertical: 13,
-	  },
-	  screen: {
-		horizontal: 24,
-	  },
-	},
-	radius: {
-	  default: 8,
-	},
-  };
+  gaps: {
+    g12: 12,
+    g24: 24,
+    button: {
+      horizontal: 18,
+      vertical: 13
+    },
+    screen: {
+      horizontal: 24
+    }
+  },
+  radius: {
+    default: 8
+  }
+};
 
 export type ThemeColors = {
   text: string;
@@ -57,4 +57,4 @@ export type ThemeColors = {
   };
 };
 
-export type ColorThemeName = 'light' | 'dark';
+export type ColorThemeName = "light" | "dark";
