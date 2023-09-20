@@ -1,6 +1,6 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import useTheme from '../hooks/useTheme';
-import {HomeScreen} from '../screens';
+import {HomeScreen, SettingsScreen} from '../screens';
 
 const {Navigator, Screen} = createNativeStackNavigator();
 export default function RootNavigator({}) {
@@ -14,6 +14,7 @@ export default function RootNavigator({}) {
         },
       }}>
       <Screen name="Home" component={HomeScreen} />
+      <Screen name="Settings" component={SettingsScreen} />
     </Navigator>
   );
 }

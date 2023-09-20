@@ -38,7 +38,7 @@ export const spacing = {
 	  },
 	},
 	radius: {
-	  default: 2,
+	  default: 8,
 	},
   };
 
