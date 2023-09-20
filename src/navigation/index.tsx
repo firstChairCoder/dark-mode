@@ -14,7 +14,6 @@ export default function RootNavigator({}) {
         },
       }}>
       <Screen name="Home" component={HomeScreen} />
-      <Screen name="Settings" component={SettingsScreen} />
     </Navigator>
   );
 }
